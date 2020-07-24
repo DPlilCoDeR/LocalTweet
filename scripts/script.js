@@ -4,11 +4,11 @@ const list = document.querySelector('#list');
 const myStorage = localStorage;
 
 tweetButton.addEventListener('click', saveTweet);
+printListItemLocalStorage();
 
 function printListItemLocalStorage() {
     for (let index = 0; index < myStorage.length; index++) {
-        let itemList = document.createElement('li')
-        console.log(myStorage.getItem(myStorage.key(index)) );
+        let itemList = document.createElement('li');
         let storageItem = myStorage.getItem(myStorage.key(index))
         itemList.append(storageItem);
         list.appendChild(itemList);
@@ -18,7 +18,4 @@ function printListItemLocalStorage() {
 function saveTweet(event){
     let tweet = tweetInput.value;
     localStorage.setItem(tweet, tweet);
-    console.log(`${tweet} guardado con exito `);
-    event.preventDefault();
-    printListItemLocalStorage();
 }
