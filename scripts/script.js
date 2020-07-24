@@ -8,14 +8,22 @@ printListItemLocalStorage();
 
 function printListItemLocalStorage() {
     for (let index = 0; index < myStorage.length; index++) {
-        let itemList = document.createElement('li');
-        let storageItem = myStorage.getItem(myStorage.key(index))
-        itemList.append(storageItem);
-        list.appendChild(itemList);
+        let storageItem = myStorage.getItem(myStorage.key(index));
+        createNodeItemList(storageItem);
     }
+}
+
+function createNodeItemList(storageItem) {
+    let itemList = document.createElement('li');
+    itemList.append(storageItem);
+    list.append(itemList);
 }
 
 function saveTweet(event){
     let tweet = tweetInput.value;
     localStorage.setItem(tweet, tweet);
+}
+
+function deleteTweet(event) {
+    
 }
