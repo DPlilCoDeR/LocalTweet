@@ -5,6 +5,7 @@ tweetButton.addEventListener('click', saveTweet);
 
 function saveTweet(event){
     let tweet = tweetInput.value;
-    console.log('bien', tweet);
+    localStorage.setItem(tweet, tweet);
+    console.log(`${tweet} guardado con exito `);
     event.preventDefault();
 }
