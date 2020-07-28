@@ -4,9 +4,9 @@ const list = document.querySelector('#list');
 const myStorage = localStorage;
 
 tweetButton.addEventListener('click', saveTweet);
-printListItemLocalStorage();
+getItemLocalStorage();
 
-function printListItemLocalStorage() {
+function getItemLocalStorage() {
     for (let index = 0; index < myStorage.length; index++) {
         let storageItem = myStorage.getItem(myStorage.key(index));
         createNodeItemList(storageItem);
