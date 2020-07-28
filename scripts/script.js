@@ -15,6 +15,9 @@ function printListItemLocalStorage() {
 
 function createNodeItemList(storageItem) {
     let itemList = document.createElement('li');
+    let deleteButton = document.createElement('button');
+    deleteButton.innerText = 'X';
+    itemList.appendChild(deleteButton);
     itemList.append(storageItem);
     list.append(itemList);
 }
