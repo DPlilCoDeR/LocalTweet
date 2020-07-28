@@ -16,7 +16,9 @@ function printListItemLocalStorage() {
 function createNodeItemList(storageItem) {
     let itemList = document.createElement('li');
     let deleteButton = document.createElement('button');
+    deleteButton.style.backgroundColor = 'red'
     deleteButton.innerText = 'X';
+    deleteButton.onclick = deleteTweet;
     itemList.appendChild(deleteButton);
     itemList.append(storageItem);
     list.append(itemList);
@@ -28,5 +30,5 @@ function saveTweet(event){
 }
 
 function deleteTweet(event) {
-    
+    console.log(event.target.parentElement.innerText)
 }
