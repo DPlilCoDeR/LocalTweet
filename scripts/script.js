@@ -32,5 +32,6 @@ function saveTweet(){
 function deleteTweet(event) {
     let tweetNodeNumber = 1;
     let textTweetNode = event.target.parentNode.childNodes[tweetNodeNumber];
+    event.target.parentNode.remove();
     myStorage.removeItem(myStorage.key(textTweetNode));
 }
