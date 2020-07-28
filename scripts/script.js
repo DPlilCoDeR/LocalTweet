@@ -24,11 +24,13 @@ function createNodeItemList(storageItem) {
     list.append(itemList);
 }
 
-function saveTweet(event){
+function saveTweet(){
     let tweet = tweetInput.value;
     localStorage.setItem(tweet, tweet);
 }
 
 function deleteTweet(event) {
-    console.log(event.target.parentElement.innerText)
+    let tweetNodeNumber = 1;
+    let textTweetNode = event.target.parentNode.childNodes[tweetNodeNumber];
+    myStorage.removeItem(myStorage.key(textTweetNode));
 }
