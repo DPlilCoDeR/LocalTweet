@@ -6,6 +6,7 @@ eventListener();
 
 function eventListener() {
     form.addEventListener('submit', createTweetNodeItemList);
+    document.addEventListener('DOMContentLoaded', getTweetsLocalStorage);
 }
 function getTweetsLocalStorage() {
     for (let index = 0; index < myStorage.length; index++) {
@@ -21,14 +22,16 @@ function createTweetNodeItemList(event) {
     let deleteButton = document.createElement('button');
     deleteButton.style.backgroundColor = 'red'
     deleteButton.innerText = 'X';
+
     deleteButton.onclick = deleteTweet;
     itemList.appendChild(deleteButton);
     itemList.append(tweet);
     list.append(itemList);
+
+    saveTweet(tweet);
 }
 
-function saveTweet(){
-    let tweet = tweetInput.value;
+function saveTweet(tweet){
     localStorage.setItem(tweet, tweet);
 }
 
