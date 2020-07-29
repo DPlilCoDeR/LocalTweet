@@ -1,26 +1,29 @@
-const tweetButton = document.querySelector('#tweet-submit');
-const tweetInput = document.querySelector('#tweet-input');
+const form = document.querySelector('.form')
 const list = document.querySelector('#list');
 const myStorage = localStorage;
 
-tweetButton.addEventListener('click', saveTweet);
-getItemLocalStorage();
+eventListener();
 
-function getItemLocalStorage() {
+function eventListener() {
+    form.addEventListener('submit', createTweetNodeItemList);
+}
+function getTweetsLocalStorage() {
     for (let index = 0; index < myStorage.length; index++) {
         let storageItem = myStorage.getItem(myStorage.key(index));
-        createNodeItemList(storageItem);
     }
 }
 
-function createNodeItemList(storageItem) {
+function createTweetNodeItemList(event) {
+    event.preventDefault();
+    const tweet = document.querySelector('#tweet-input').value;
+
     let itemList = document.createElement('li');
     let deleteButton = document.createElement('button');
     deleteButton.style.backgroundColor = 'red'
     deleteButton.innerText = 'X';
     deleteButton.onclick = deleteTweet;
     itemList.appendChild(deleteButton);
-    itemList.append(storageItem);
+    itemList.append(tweet);
     list.append(itemList);
 }
 
